@@ -1,22 +1,12 @@
 import * as fp from 'fp-ts/function';
+import { log } from 'node:console';
+import * as fs from 'node:fs';
 
-const result = fp.pipe(
-	1,
-	increment,
-	double,
-	decrement
-);
+console.log('Advent of Code!');
 
-function increment(n: number): number {
-	return n + 1;
-}  
-
-function double(n: number): number {
-	return n * 2;
+function readMultiline(filePath: string): string[] {
+	const asOneString: string = fs.readFileSync(filePath, { encoding: "utf8", flag: "r" });
+	return asOneString.split('\n');
 }
 
-function decrement(n: number): number {
-	return n - 1;
-}
-
-console.log('Hello Functional', result);
+console.log(readMultiline('src/inputs/Day-1.txt'));
