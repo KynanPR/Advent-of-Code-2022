@@ -10,6 +10,7 @@ function readMultiline(filePath: string): Input {
     encoding: 'utf8',
     flag: 'r',
   });
+  const removeCR: string = asOneString.replaceAll('\r', ''); // Make function provide standard output for both CRLF & LF formats
   return asOneString.split('\n');
 }
 
